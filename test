@@ -1,0 +1,16 @@
+let symbols = "abcdefghijklmnopqrstuvqxyz0123456789".toUpperCase()
+let randomSymbol = (symbols) => symbols[Math.floor(Math.random()*symbols.length)]
+let constructLabel = (length) => {
+  let label = Array(length)
+  label = label.fill(1).map((each) => randomSymbol(symbols))
+  return label.reduce((letter, group)=> letter + group)
+}
+let labels = Array(100).fill(1).map(() => constructLabel(3))
+console.log(new Set(labels))
+let final = []
+
+for (each of new Set(labels).values()) {
+  final.push(each)
+}
+
+console.log(final.toString())
