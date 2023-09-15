@@ -1,7 +1,7 @@
 
 
 /** A string of the symbols we want to use for labels */
-const symbols = "abcdefghijklmnopqrstuvqxyz0123456789".toUpperCase()
+const symbols = "abcdefghijklmnopqrstuvqxyz123456789".toUpperCase()
 
 /**
  * Takes a string representation of symbols and returns a new string of just one symbol
@@ -24,23 +24,27 @@ function randomSymbol(symbols) {
  */
 function constructLabel(length) {
   let label = Array(length)
-  label = label.fill(1).map((each) => randomSymbol(symbols))
+  label = label.fill(1).map((_) => randomSymbol(symbols))
   return label.reduce((letter, group)=> letter + group)
 }
 
+/** This is the main block of this script */
 {
-  let labels = Array(100).fill(1).map(() => constructLabel(3))
-  let final = []
-  
-  for (let each of new Set(labels).values()) {
-    final.push(each)
-  }
+  let labels = Array(320).fill(1).map(() => constructLabel(3))
+
+  //force our array to have unique values
+  let final = Array.from(new Set(labels).values())
   
   console.log(final.toString())
   // sketchy wait for dom to load timeout function
   setTimeout(() => {
     let el = document.getElementById("labels")
-    el.innerHTML = final.toString()
+    el.innerHTML = ""
+    final.forEach((each) => {
+      let div = document.createElement("div")
+      div.innerHTML = each
+      el.appendChild(div)
+    })
     
   }, 500);
 }
