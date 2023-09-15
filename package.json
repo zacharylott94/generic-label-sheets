@@ -1,0 +1,14 @@
+{
+  "name": "labels",
+  "version": "0.0.1",
+  "description": "A simple static site that generates a page of alphanumeric labels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zach Lott",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  }
+}
