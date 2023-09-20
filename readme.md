@@ -1,0 +1,2 @@
+# Generic Label Sheets
+This is a simple tool I designed to quickly generate unique alphanumeric identifiers. I use this at my place of work to generate unique codes to identify merchandise bundles. Simply navigate [here](https://zacharylott94.github.io/generic-label-sheets/) to pull up a web page to print off the labels.
